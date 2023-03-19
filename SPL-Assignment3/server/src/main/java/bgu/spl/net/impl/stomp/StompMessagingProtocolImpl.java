@@ -122,7 +122,7 @@ public class StompMessagingProtocolImpl implements StompMessagingProtocol {
         String subscriptionID = returnHeader("id", parts);
         if (topic.equals("") | subscriptionID.equals("")) {
             sendErrorFrame("malformed frame received", receipt, myConnectionID);
-        } else {
+        } else {            
             LinkedList<String> usersList = serverConnections.TopicsToUsers.get(topic);
             if (usersList == null) {
                 LinkedList<String> L = new LinkedList<>();
@@ -188,7 +188,7 @@ public class StompMessagingProtocolImpl implements StompMessagingProtocol {
 
     // ----------------------- Command Func ------------------
 
-    
+
 
     @Override
     public boolean shouldTerminate() {
